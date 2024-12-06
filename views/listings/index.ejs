@@ -1,0 +1,23 @@
+<% layout('/layouts/boilerplate') -%>
+
+<h3>All Products</h3>
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+    <% for(let product of allProducts) { %>
+        <div class="card index-card product-card">
+            <a href="/products/<%= product._id %>">
+                
+                <img src="<%= product.image %>" class="card-img-top" alt="product_image" style="height : 20rem;">
+            </a>
+            <div class="card-body">
+                <b>
+                    <p class="card-text">
+                        <%= product.brand %>
+                        <%= product.category %>
+                    </p>
+                </b>
+                <p>&#8377; <%= (typeof product.price === "number") ? product.price.toLocaleString("en-US") : "Price not available" %> %></p>
+                <a href="/products/<%= product._id %>"></a>
+            </div>
+        </div>
+        <% } %>
+</div>
